@@ -20,6 +20,14 @@ pipelineConfig:
         environment:
         - name: DEPLOY_NAMESPACE
           value: jx
+        - name: GIT_AUTHOR_NAME
+          value: cloudbees-ci-cd[bot]
+        - name: GIT_COMMITTER_NAME
+          value: cloudbees-ci-cd[bot]
+        - name: GIT_AUTHOR_EMAIL
+          value: arcalos-admin@googlegroups.com
+        - name: GIT_COMMITTER_EMAIL
+          value: arcalos-admin@googlegroups.com
         stages:
         - name: release
           steps:
@@ -213,14 +221,14 @@ pipelineConfig:
             command: jxt
             dir: /workspace/source/env
             image: gcr.io/jenkinsxio/jx-tenant-service:0.0.539
-            name: update-hmac-token            
+            name: update-hmac-token
           - command: ./adduser.sh
             dir: /workspace/source
             name: add-user
           - args:
             - ""
             - ""
-            - "now populating projects...."
+            - now populating projects....
             - ""
             - ""
             command: echo
